@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>Warung aa iki • Coklat Cream • Foto Produk</title>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    /* ===== VARIABEL WARNA COKLAT CREAM ===== */
+    :root {
+      --cream: #fdf8f2;
+      --cream-dark: #f5ede1;
+      --coklat-muda: #e6d5c0;
+      --coklat-sedang: #c7ad8f;
+      --coklat-tua: #8b6b4d;
+      --coklat-espresso: #5a3e2b;
+      --coklat-hitam: #3c2e24;
+      --emas: #b48b5a;
+      --putih: #ffffff;
+      --shadow: 0 10px 30px -10px rgba(90, 62, 43, 0.08);
+      --border-radius: 20px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--cream);
+      color: var(--coklat-hitam);
+      line-height: 1.5;
+    }
+
+    .app-wrapper {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 30px 24px;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* ===== HEADER DENGAN LOGO MENARIK ===== */
+    .header {
+      background: var(--putih);
+      border-radius: var(--border-radius);
+      padding: 20px 32px;
+      margin-bottom: 32px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--coklat-muda);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* LOGO YANG MENARIK */
+    .logo-icon {
+      background: linear-gradient(145deg, var(--coklat-espresso), var(--coklat-hitam));
+      width: 60px;
+      height: 60px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2rem;
+      box-shadow: 0 8px 0 var(--coklat-tua);
+      border: 2px solid var(--emas);
+      transform: rotate(-3deg);
+      transition: 0.2s;
+    }
+
+    .logo-icon:hover {
+      transform: rotate(0deg);
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--coklat-espresso);
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+    }
+
+    .logo-text span {
+      font-size: 0.8rem;
+      color: var(--coklat-tua);
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .badge {
+      background: var(--cream-dark);
+      padding: 8px 18px;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--coklat-tua);
+      border: 1px solid var(--coklat-muda);
+      display: inline-block;
+      margin-top: 4px;
+    }
+
+    /* ===== CART FLOATING ===== */
+    .cart-fixed {
+      position: relative;
+    }
+
+    .cart-button {
+      background: var(--coklat-espresso);
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      cursor: pointer;
+      transition: 0.2s;
+      border: 1px solid var(--emas);
+      box-shadow: 0 6px 0 var(--coklat-hitam);
+    }
+
+    .cart-button:hover {
+      background: #6b4f3a;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 0 var(--coklat-hitam);
+    }
+
+    .cart-button i {
+      font-size: 1.2rem;
+    }
+
+    .cart-count {
+      background: var(--emas);
+      color: white;
+      border-radius: 30px;
+      padding: 2px 10px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    /* ===== NAVIGASI TAB HALAMAN ===== */
+    .nav-tabs {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 30px;
+      background: var(--putih);
+      padding: 12px;
+      border-radius: 60px;
+      border: 1px solid var(--coklat-muda);
+      box-shadow: var(--shadow);
+      flex-wrap: wrap;
+    }
+
+    .nav-tab {
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      color: var(--coklat-tua);
+      cursor: pointer;
+      transition: 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      border: none;
+      font-size: 0.95rem;
+    }
+
+    .nav-tab i {
+      font-size: 1.1rem;
+    }
+
+    .nav-tab.active {
+      background: var(--coklat-espresso);
+      color: white;
+      box-shadow: 0 4px 10px rgba(90, 62, 43, 0.2);
+    }
+
+    .nav-tab:hover:not(.active) {
+      background: var(--cream-dark);
+    }
+
+    /* ===== HALAMAN (PAGE) ===== */
+    .page {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .page.active-page {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== SECTION PRODUK ===== */
+    .product-section {
+      background: var(--putih);
+      border-radius: var(--border-radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--coklat-muda);
+      margin-bottom: 24px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--coklat-espresso);
+      border-bottom: 2px solid var(--coklat-muda);
+      padding-bottom: 18px;
+      margin-bottom: 26px;
+    }
+
+    .section-title i {
+      color: var(--emas);
+      font-size: 1.4rem;
+    }
+
+    /* ===== GRID PRODUK DENGAN FOTO ===== */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 22px;
+    }
+
+    .product-card {
+      background: var(--putih);
+      border: 1px solid var(--coklat-muda);
+      border-radius: 18px;
+      padding: 16px;
+      transition: 0.2s;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .product-card:hover {
+      border-color: var(--emas);
+      box-shadow: 0 8px 20px rgba(139, 107, 77, 0.08);
+      background: #fffdfa;
+    }
+
+    /* ===== FITUR FOTO PRODUK ===== */
+    .product-image {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 14px;
+      margin-bottom: 14px;
+      border: 2px solid var(--coklat-muda);
+      background: var(--cream);
+    }
+
+    .product-name {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--coklat-espresso);
+      margin-bottom: 6px;
+    }
+
+    .product-price {
+      font-weight: 700;
+      color: var(--coklat-tua);
+      font-size: 1.2rem;
+      margin-top: 8px;
+    }
+
+    .product-price::before {
+      content: "Rp";
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--coklat-sedang);
+      margin-right: 4px;
+    }
+
+    /* ===== HALAMAN KERANJANG ===== */
+    .cart-page {
+      background: var(--putih);
+      border-radius: var(--border-radius);
+      padding: 32px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--coklat-muda);
+    }
+
+    .cart-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      border-bottom: 2px solid var(--coklat-muda);
+      padding-bottom: 20px;
+      margin-bottom: 24px;
+    }
+
+    .cart-header i {
+      font-size: 2rem;
+      color: var(--emas);
+    }
+
+    .cart-header h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--coklat-espresso);
+    }
+
+    .cart-items {
+      list-style: none;
+      margin-bottom: 28px;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--coklat-muda);
+    }
+
+    .cart-item-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .cart-item-name {
+      font-weight: 600;
+      color: var(--coklat-espresso);
+    }
+
+    .cart-item-price {
+      color: var(--coklat-tua);
+      font-weight: 700;
+    }
+
+    .cart-item-remove {
+      color: #a65a3c;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.1rem;
+      padding: 8px;
+      border-radius: 50%;
+      transition: 0.2s;
+    }
+
+    .cart-item-remove:hover {
+      background: #fef0e6;
+    }
+
+    .cart-empty {
+      text-align: center;
+      padding: 48px 24px;
+      color: var(--coklat-sedang);
+      background: var(--cream);
+      border-radius: 16px;
+      font-style: italic;
+    }
+
+    .cart-summary {
+      background: var(--cream);
+      padding: 24px;
+      border-radius: 16px;
+      margin-top: 20px;
+    }
+
+    .cart-total {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--coklat-espresso);
+      margin-bottom: 20px;
+    }
+
+    .btn-wa {
+      background: #25a35a;
+      color: white;
+      border: none;
+      padding: 16px 32px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      cursor: pointer;
+      transition: 0.2s;
+      border: 1px solid #1e7e44;
+      width: 100%;
+    }
+
+    .btn-wa:hover {
+      background: #1e8b4a;
+    }
+
+    .btn-wa i {
+      font-size: 1.2rem;
+    }
+
+    /* ===== FORM UPLOAD FOTO ===== */
+    .upload-section {
+      background: var(--cream);
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 24px;
+      border: 2px dashed var(--coklat-sedang);
+    }
+
+    .upload-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      color: var(--coklat-espresso);
+      margin-bottom: 16px;
+    }
+
+    .upload-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .upload-input {
+      flex: 1;
+      padding: 12px 16px;
+      border: 1px solid var(--coklat-muda);
+      border-radius: 50px;
+      font-size: 0.9rem;
+      background: white;
+    }
+
+    .upload-btn {
+      background: var(--coklat-tua);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .upload-btn:hover {
+      background: var(--coklat-espresso);
+    }
+
+    .example-text {
+      font-size: 0.8rem;
+      color: var(--coklat-sedang);
+      margin-top: 8px;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      margin-top: 60px;
+      padding: 24px 0;
+      border-top: 1px solid var(--coklat-muda);
+      display: flex;
+      justify-content: space-between;
+      color: var(--coklat-tua);
+      font-weight: 500;
+      font-size: 0.9rem;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .app-wrapper {
+        padding: 20px 16px;
+      }
+      
+      .nav-tabs {
+        padding: 8px;
+      }
+      
+      .nav-tab {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+      }
+      
+      .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      }
+      
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+      
+      .cart-button {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .logo-container {
+        width: 100%;
+      }
+    }
+
+    /* ===== NOMOR WHATSAPP DI FOOTER ===== */
+    .wa-number {
+      font-weight: 700;
+      color: var(--coklat-espresso);
+      background: var(--cream-dark);
+      padding: 4px 12px;
+      border-radius: 30px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-wrapper">
+    <!-- HEADER DENGAN LOGO MENARIK -->
+    <header class="header">
+      <div class="logo-container">
+        <div class="logo-icon">
+          <i class="fas fa-store"></i>
+        </div>
+        <div class="logo-text">
+          <h1>Warung AA IKI</h1>
+          <span>Asli • 24 Jam • Nikmat</span>
+          <div class="badge" style="margin-top: 6px;">
+            <i class="fas fa-clock"></i> Buka 24 jam • Antar gratis
+          </div>
+        </div>
+      </div>
+      <div class="cart-fixed">
+        <button class="cart-button" id="cartSidebarToggle">
+          <i class="fas fa-shopping-bag"></i>
+          <span>Keranjang</span>
+          <span class="cart-count" id="cartCountBadge">0</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- NAVIGASI TAB HALAMAN -->
+    <div class="nav-tabs">
+      <button class="nav-tab active" data-page="home">
+        <i class="fas fa-home"></i> Home
+      </button>
+      <button class="nav-tab" data-page="makanan">
+        <i class="fas fa-utensils"></i> Makanan
+      </button>
+      <button class="nav-tab" data-page="minuman">
+        <i class="fas fa-mug-hot"></i> Minuman
+      </button>
+      <button class="nav-tab" data-page="cart">
+        <i class="fas fa-shopping-cart"></i> Keranjang 
+        <span class="cart-count" id="cartCountNav" style="background: var(--coklat-tua);">0</span>
+      </button>
+    </div>
+
+    <!-- ===== SEKSI UPLOAD FOTO ===== -->
+    <div class="upload-section">
+      <div class="upload-title">
+        <i class="fas fa-camera"></i>
+        <span>Ganti Foto Produk Sesuai Selera</span>
+      </div>
+      <div class="upload-form">
+        <select id="productSelect" class="upload-input">
+          <option value="">Pilih produk yang akan diganti fotonya</option>
+        </select>
+        <input type="text" id="imageUrlInput" class="upload-input" placeholder="Masukkan URL gambar (contoh: https://example.com/foto.jpg)">
+        <button id="updateImageBtn" class="upload-btn">
+          <i class="fas fa-image"></i> Ganti Foto
+        </button>
+      </div>
+      <div class="example-text">
+        <i class="fas fa-info-circle"></i> Gunakan URL gambar dari internet. Contoh: https://images.unsplash.com/photo-...
+      </div>
+    </div>
+
+    <!-- ===== HALAMAN HOME ===== -->
+    <div id="page-home" class="page active-page">
+      <div class="product-section">
+        <div class="section-title">
+          <i class="fas fa-star"></i>
+          <span>Menu Unggulan</span>
+        </div>
+        <div class="product-grid" id="home-grid"></div>
+      </div>
+      
+      <div class="product-section">
+        <div class="section-title">
+          <i class="fas fa-clock"></i>
+          <span>Selalu Tersedia 24 Jam</span>
+        </div>
+        <p style="color: var(--coklat-tua); padding: 8px 0;">
+          Warung Madura menyediakan berbagai cemilan dan minuman segar setiap saat. 
+          Klik produk untuk menambah ke keranjang.
+        </p>
+        <div style="margin-top: 16px; padding: 16px; background: var(--cream); border-radius: 16px; text-align: center;">
+          <i class="fab fa-whatsapp" style="color: #25a35a; font-size: 1.5rem;"></i>
+          <span style="font-weight: 700; margin-left: 8px;">Pesan via WhatsApp: <span class="wa-number">0878 6323 2334</span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== HALAMAN MAKANAN ===== -->
+    <div id="page-makanan" class="page">
+      <div class="product-section">
+        <div class="section-title">
+          <i class="fas fa-cookie"></i>
+          <span>Makanan & Cemilan</span>
+        </div>
+        <div class="product-grid" id="makanan-grid"></div>
+      </div>
+    </div>
+
+    <!-- ===== HALAMAN MINUMAN ===== -->
+    <div id="page-minuman" class="page">
+      <div class="product-section">
+        <div class="section-title">
+          <i class="fas fa-mug-hot"></i>
+          <span>Minuman Dingin & Hangat</span>
+        </div>
+        <div class="product-grid" id="minuman-grid"></div>
+      </div>
+    </div>
+
+    <!-- ===== HALAMAN KERANJANG ===== -->
+    <div id="page-cart" class="page">
+      <div class="cart-page">
+        <div class="cart-header">
+          <i class="fas fa-shopping-cart"></i>
+          <h2>Keranjang Belanja</h2>
+        </div>
+        
+        <div id="cartContainer">
+          <ul class="cart-items" id="cartItemsList"></ul>
+          <div id="cartEmptyMessage" class="cart-empty">
+            <i class="fas fa-store"></i> Keranjang masih kosong. Silakan pilih produk.
+          </div>
+          <div id="cartSummary" style="display: none;">
+            <div class="cart-summary">
+              <div class="cart-total">
+                <span>Total Pesanan</span>
+                <span id="cartTotalPrice">Rp 0</span>
+              </div>
+              <button class="btn-wa" id="checkoutBtn">
+                <i class="fab fa-whatsapp"></i> Pesan via WhatsApp (0878 6323 2334)
+              </button>
+              <p style="font-size: 0.8rem; color: var(--coklat-sedang); margin-top: 16px; text-align: center;">
+                Anda akan terhubung dengan WhatsApp Warung Madura
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <span><i class="fas fa-map-pin"></i> Jl. Raya Madura No. 17</span>
+      <span><i class="fab fa-whatsapp"></i> <span style="font-weight: 700;">0878 6323 2334</span></span>
+      <span><i class="fas fa-truck"></i> Gratis ongkir area Madura</span>
+    </footer>
+  </div>
+
+  <script>
+    (function() {
+      "use strict";
+
+      // ========== KONFIGURASI WHATSAPP ==========
+      // NOMOR WHATSAPP WARUNG - SUDAH SESUAI PERMINTAAN: 087863232334
+      const NOMOR_WARUNG = "6287863232334"; // Format internasional (62 untuk Indonesia, tanpa 0)
+      const NOMOR_DISPLAY = "0878 6323 2334"; // Format tampilan
+
+      // ========== DATA PRODUK DENGAN FOTO DEFAULT ==========
+      // Foto menggunakan URL Unsplash yang elegan
+      const DEFAULT_FOOD_IMG = "https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=400&h=300&fit=crop";
+      const DEFAULT_DRINK_IMG = "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=300&fit=crop";
+      const DEFAULT_SNACK_IMG = "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&h=300&fit=crop";
+
+      const produkMakanan = [
+        { id: "m1", nama: "Chiki", harga: 4500, icon: "fa-cookie", image: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&h=300&fit=crop" },
+        { id: "m2", nama: "Roma Malkis", harga: 7500, icon: "fa-cake", image: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400&h=300&fit=crop" },
+        { id: "m3", nama: "Coki-Coki", harga: 3000, icon: "fa-fish", image: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&h=300&fit=crop" },
+        { id: "m4", nama: "Gery", harga: 6800, icon: "fa-chocolate-bar", image: "https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=400&h=300&fit=crop" },
+        { id: "m5", nama: "Siip", harga: 5500, icon: "fa-cheese", image: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400&h=300&fit=crop" },
+        { id: "m6", nama: "Superzuper", harga: 6000, icon: "fa-candy", image: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&h=300&fit=crop" },
+        { id: "m7", nama: "Apetito", harga: 8500, icon: "fa-egg", image: "https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=400&h=300&fit=crop" },
+        { id: "m8", nama: "Garuda", harga: 5000, icon: "fa-seedling", image: "https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=400&h=300&fit=crop" },
+        { id: "m9", nama: "Momogi", harga: 2000, icon: "fa-corn", image: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&h=300&fit=crop" },
+        { id: "m10", nama: "Slai Olai", harga: 7200, icon: "fa-bread-slice", image: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400&h=300&fit=crop" },
+        { id: "m11", nama: "Biskuat", harga: 6300, icon: "fa-bone", image: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&h=300&fit=crop" },
+        { id: "m12", nama: "Taro", harga: 6900, icon: "fa-leaf", image: "https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=400&h=300&fit=crop" },
+        { id: "m13", nama: "Japota", harga: 5500, icon: "fa-potato", image: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&h=300&fit=crop" },
+        { id: "m14", nama: "Kejucake", harga: 10500, icon: "fa-cheese", image: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400&h=300&fit=crop" },
+        { id: "m15", nama: "Oreo", harga: 8000, icon: "fa-circle", image: "https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=400&h=300&fit=crop" },
+        { id: "m16", nama: "Roti Manis", harga: 7000, icon: "fa-bread-slice", image: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400&h=300&fit=crop" }
+      ];
+
+      const produkMinuman = [
+        { id: "d1", nama: "Es Teh Manis", harga: 4000, icon: "fa-mug-hot", image: "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=300&fit=crop" },
+        { id: "d2", nama: "Es Nutrisari", harga: 5000, icon: "fa-lemon", image: "https://images.unsplash.com/photo-1621263764928-df1444c974e2?w=400&h=300&fit=crop" },
+        { id: "d3", nama: "Es Macha", harga: 7000, icon: "fa-leaf", image: "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=300&fit=crop" },
+        { id: "d4", nama: "Es Chocolatos", harga: 6000, icon: "fa-chocolate-bar", image: "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=300&fit=crop" },
+        { id: "d5", nama: "Tehjus Apel", harga: 6500, icon: "fa-apple-whole", image: "https://images.unsplash.com/photo-1621263764928-df1444c974e2?w=400&h=300&fit=crop" },
+        { id: "d6", nama: "Tehjus Melati", harga: 6000, icon: "fa-flower", image: "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=300&fit=crop" },
+        { id: "d7", nama: "Tehjus Gulabatu", harga: 7000, icon: "fa-cube", image: "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=300&fit=crop" },
+        { id: "d8", nama: "Kopi Panas", harga: 4000, icon: "fa-coffee", image: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=400&h=300&fit=crop" },
+        { id: "d9", nama: "Es Teh Tarik", harga: 8000, icon: "fa-wine-glass", image: "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=300&fit=crop" },
+        { id: "d10", nama: "Es Milo", harga: 7000, icon: "fa-chocolate-bar", image: "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=300&fit=crop" },
+        { id: "d11", nama: "Es Teh Jasmine", harga: 4500, icon: "fa-leaf", image: "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=300&fit=crop" },
+        { id: "d12", nama: "Kopi Susu", harga: 6000, icon: "fa-coffee", image: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=400&h=300&fit=crop" }
+      ];
+
+      // Gabungkan semua produk untuk keperluan pencarian
+      const semuaProduk = [...produkMakanan, ...produkMinuman];
+
+      // ========== STATE KERANJANG ==========
+      let cart = [];
+
+      // ========== ELEMEN DOM ==========
+      const pages = {
+        home: document.getElementById('page-home'),
+        makanan: document.getElementById('page-makanan'),
+        minuman: document.getElementById('page-minuman'),
+        cart: document.getElementById('page-cart')
+      };
+
+      const navTabs = document.querySelectorAll('.nav-tab');
+      const cartCountBadge = document.getElementById('cartCountBadge');
+      const cartCountNav = document.getElementById('cartCountNav');
+      const cartItemsList = document.getElementById('cartItemsList');
+      const cartEmptyMessage = document.getElementById('cartEmptyMessage');
+      const cartSummary = document.getElementById('cartSummary');
+      const cartTotalPrice = document.getElementById('cartTotalPrice');
+      const checkoutBtn = document.getElementById('checkoutBtn');
+      const cartSidebarToggle = document.getElementById('cartSidebarToggle');
+      const productSelect = document.getElementById('productSelect');
+      const imageUrlInput = document.getElementById('imageUrlInput');
+      const updateImageBtn = document.getElementById('updateImageBtn');
+
+      // ========== FUNGSI RENDER PRODUK DENGAN FOTO ==========
+      function renderProductGrid(containerId, produkList) {
+        const grid = document.getElementById(containerId);
+        if (!grid) return;
+        
+        grid.innerHTML = produkList.map(produk => `
+          <div class="product-card" data-id="${produk.id}" data-nama="${produk.nama}" data-harga="${produk.harga}">
+            <img src="${produk.image}" alt="${produk.nama}" class="product-image" onerror="this.src='${DEFAULT_SNACK_IMG}'">
+            <div class="product-name">${produk.nama}</div>
+            <div class="product-price">${produk.harga.toLocaleString()}</div>
+          </div>
+        `).join('');
+      }
+
+      // Render home (campuran makanan & minuman)
+      function renderHome() {
+        const homeGrid = document.getElementById('home-grid');
+        if (!homeGrid) return;
+        
+        // Ambil 8 produk pertama dari makanan dan 4 dari minuman
+        const unggulan = [...produkMakanan.slice(0, 8), ...produkMinuman.slice(0, 4)];
+        homeGrid.innerHTML = unggulan.map(produk => `
+          <div class="product-card" data-id="${produk.id}" data-nama="${produk.nama}" data-harga="${produk.harga}">
+            <img src="${produk.image}" alt="${produk.nama}" class="product-image" onerror="this.src='${DEFAULT_SNACK_IMG}'">
+            <div class="product-name">${produk.nama}</div>
+            <div class="product-price">${produk.harga.toLocaleString()}</div>
+          </div>
+        `).join('');
+      }
+
+      // ========== FUNGSI UPDATE SELECT PRODUK ==========
+      function updateProductSelect() {
+        if (!productSelect) return;
+        
+        productSelect.innerHTML = '<option value="">Pilih produk yang akan diganti fotonya</option>';
+        
+        // Urutkan berdasarkan nama
+        const sorted = [...semuaProduk].sort((a, b) => a.nama.localeCompare(b.nama));
+        
+        sorted.forEach(produk => {
+          const option = document.createElement('option');
+          option.value = produk.id;
+          option.textContent = `${produk.nama} - Rp ${produk.harga.toLocaleString()}`;
+          productSelect.appendChild(option);
+        });
+      }
+
+      // ========== FUNGSI GANTI FOTO PRODUK ==========
+      function updateProductImage() {
+        const productId = productSelect.value;
+        const imageUrl = imageUrlInput.value.trim();
+        
+        if (!productId) {
+          alert('Silakan pilih produk terlebih dahulu');
+          return;
+        }
+        
+        if (!imageUrl) {
+          alert('Masukkan URL gambar');
+          return;
+        }
+        
+        // Cari produk di semua database
+        let produk = semuaProduk.find(p => p.id === productId);
+        
+        if (produk) {
+          // Update image URL
+          produk.image = imageUrl;
+          
+          // Re-render semua grid yang berisi produk ini
+          renderProductGrid('makanan-grid', produkMakanan);
+          renderProductGrid('minuman-grid', produkMinuman);
+          renderHome();
+          
+          // Bersihkan input
+          imageUrlInput.value = '';
+          
+          // Tampilkan notifikasi
+          alert(`Foto ${produk.nama} berhasil diganti!`);
+        } else {
+          alert('Produk tidak ditemukan');
+        }
+      }
+
+      // ========== FUNGSI KERANJANG ==========
+      function addToCart(nama, harga) {
+        cart.push({ nama, harga });
+        updateCartUI();
+        // Notifikasi simple
+        const notif = document.createElement('div');
+        notif.style.position = 'fixed';
+        notif.style.bottom = '20px';
+        notif.style.right = '20px';
+        notif.style.background = 'var(--coklat-espresso)';
+        notif.style.color = 'white';
+        notif.style.padding = '12px 24px';
+        notif.style.borderRadius = '50px';
+        notif.style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
+        notif.style.zIndex = '9999';
+        notif.style.fontWeight = '600';
+        notif.innerHTML = `<i class="fas fa-check-circle"></i> ${nama} ditambahkan`;
+        document.body.appendChild(notif);
+        setTimeout(() => notif.remove(), 2000);
+      }
+
+      function removeFromCart(index) {
+        if (index >= 0 && index < cart.length) {
+          const removed = cart[index];
+          cart.splice(index, 1);
+          updateCartUI();
+          
+          const notif = document.createElement('div');
+          notif.style.position = 'fixed';
+          notif.style.bottom = '20px';
+          notif.style.right = '20px';
+          notif.style.background = '#a65a3c';
+          notif.style.color = 'white';
+          notif.style.padding = '12px 24px';
+          notif.style.borderRadius = '50px';
+          notif.style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
+          notif.style.zIndex = '9999';
+          notif.style.fontWeight = '600';
+          notif.innerHTML = `<i class="fas fa-trash"></i> ${removed.nama} dihapus`;
+          document.body.appendChild(notif);
+          setTimeout(() => notif.remove(), 2000);
+        }
+      }
+
+      function updateCartUI() {
+        // Update badge count
+        const count = cart.length;
+        cartCountBadge.textContent = count;
+        cartCountNav.textContent = count;
+        
+        // Update halaman keranjang
+        if (cartItemsList) {
+          if (cart.length === 0) {
+            cartItemsList.innerHTML = '';
+            cartEmptyMessage.style.display = 'block';
+            cartSummary.style.display = 'none';
+          } else {
+            cartEmptyMessage.style.display = 'none';
+            cartSummary.style.display = 'block';
+            
+            cartItemsList.innerHTML = cart.map((item, index) => `
+              <li class="cart-item">
+                <div class="cart-item-info">
+                  <span class="cart-item-name">${item.nama}</span>
+                  <span class="cart-item-price">Rp ${item.harga.toLocaleString()}</span>
+                </div>
+                <button class="cart-item-remove" onclick="window.removeFromCart(${index})">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </li>
+            `).join('');
+            
+            // Hitung total
+            const total = cart.reduce((sum, item) => sum + item.harga, 0);
+            cartTotalPrice.textContent = `Rp ${total.toLocaleString()}`;
+          }
+        }
+      }
+
+      // ========== FUNGSI WHATSAPP ==========
+      function orderViaWA() {
+        if (cart.length === 0) {
+          alert('Keranjang masih kosong');
+          return;
+        }
+        
+        let daftarPesanan = '';
+        let total = 0;
+        
+        cart.forEach(item => {
+          daftarPesanan += `• ${item.nama} - Rp ${item.harga.toLocaleString()}\n`;
+          total += item.harga;
+        });
+        
+        const pesan = `Halo Warung Madura, saya mau pesan:\n${daftarPesanan}\nTotal: Rp ${total.toLocaleString()}\n\nMohon segera diproses. Terima kasih.`;
+        
+        // Menggunakan nomor WhatsApp yang sudah ditentukan: 087863232334 (format internasional: 6287863232334)
+        window.open(`https://wa.me/${NOMOR_WARUNG}?text=${encodeURIComponent(pesan)}`, '_blank');
+      }
+
+      // ========== EVENT LISTENER ==========
+      function initEventListeners() {
+        // Navigasi tab
+        navTabs.forEach(tab => {
+          tab.addEventListener('click', function() {
+            const pageId = this.dataset.page;
+            
+            navTabs.forEach(t => t.classList.remove('active'));
+            Object.values(pages).forEach(p => p.classList.remove('active-page'));
+            
+            this.classList.add('active');
+            if (pageId === 'home') pages.home.classList.add('active-page');
+            if (pageId === 'makanan') pages.makanan.classList.add('active-page');
+            if (pageId === 'minuman') pages.minuman.classList.add('active-page');
+            if (pageId === 'cart') pages.cart.classList.add('active-page');
+          });
+        });
+
+        // Event delegation untuk klik produk
+        document.addEventListener('click', function(e) {
+          const productCard = e.target.closest('.product-card');
+          if (productCard) {
+            const nama = productCard.dataset.nama;
+            const harga = parseInt(productCard.dataset.harga, 10);
+            if (nama && !isNaN(harga)) {
+              addToCart(nama, harga);
+            }
+          }
+        });
+
+        // Tombol checkout
+        if (checkoutBtn) {
+          checkoutBtn.addEventListener('click', orderViaWA);
+        }
+
+        // Tombol keranjang di header
+        if (cartSidebarToggle) {
+          cartSidebarToggle.addEventListener('click', function() {
+            navTabs.forEach(t => t.classList.remove('active'));
+            Object.values(pages).forEach(p => p.classList.remove('active-page'));
+            
+            const cartTab = Array.from(navTabs).find(t => t.dataset.page === 'cart');
+            if (cartTab) cartTab.classList.add('active');
+            pages.cart.classList.add('active-page');
+          });
+        }
+
+        // Tombol ganti foto
+        if (updateImageBtn) {
+          updateImageBtn.addEventListener('click', updateProductImage);
+        }
+      }
+
+      // ========== EXPOSE GLOBAL ==========
+      window.removeFromCart = removeFromCart;
+
+      // ========== INITIALIZE ==========
+      function init() {
+        // Render semua produk
+        renderProductGrid('makanan-grid', produkMakanan);
+        renderProductGrid('minuman-grid', produkMinuman);
+        renderHome();
+        
+        // Update select produk
+        updateProductSelect();
+        
+        // Inisialisasi state keranjang
+        updateCartUI();
+        
+        // Event listeners
+        initEventListeners();
+
+        // Tampilkan nomor WhatsApp di console (untuk verifikasi)
+        console.log('Nomor WhatsApp Warung: 087863232334 (format internasional: 6287863232334)');
+      }
+
+      init();
+    })();
+  </script>
+</body>
+</html>
